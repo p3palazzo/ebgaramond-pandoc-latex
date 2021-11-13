@@ -1,0 +1,34 @@
+from            : markdown+raw_tex
+to              : latex
+standalone      : true
+data-dir        : "_lib"
+file-scope      : true
+number-sections : true
+pdf-engine      : xelatex
+fail-if-warnings: true
+cite-method     : citeproc
+filters:
+  - pandoc-crossref
+  - citeproc
+variables:
+  documentclass: article
+  fontsize: 11pt
+  header-includes:
+    - \renewcommand{\headrulewidth}{0.5pt}
+    - \renewcommand{\footrulewidth}{0.5pt}
+    - \usepackage[p,osf]{ebgaramond}
+    - \usepackage{academicons}
+    - \usepackage{multicol}
+    - \setlength{\columnsep}{15pt}
+    - \usepackage{csquotes}
+    - \usepackage[overload]{textcase}
+    - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
+  include-before:
+    - \let\oldsc\textsc
+    - \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
+    - \RedeclareSectionCommand[font={\ttfamily\normalfont\MakeUppercase}]{section}
+    - \RedeclareSectionCommand[font={\rmfamily\normalfont\itshape}]{subsection}
+    - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
+  indent: true
+  papersize: a4
+  secnumdepth: 2
