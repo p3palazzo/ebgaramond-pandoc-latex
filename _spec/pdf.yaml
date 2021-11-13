@@ -22,7 +22,10 @@ variables:
     - \setlength{\columnsep}{15pt}
     - \usepackage{csquotes}
     - \usepackage[overload]{textcase}
+    - \usepackage{titlesec}
+    - \usepackage{titling}
     - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
+    - \renewcommand{\maketitlehooka}{\scshape}
   include-before:
     - \let\oldsc\textsc
     - \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
