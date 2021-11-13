@@ -436,6 +436,8 @@ $if(logo)$
 \logo{\includegraphics{$logo$}}
 $endif$
 $endif$
+% Pedro removed the abstract title *********************
+\renewenvironment{abstract}{\quotation}
 
 \begin{document}
 $if(has-frontmatter)$
@@ -449,7 +451,7 @@ $else$
 $endif$
 $if(abstract)$
 \begin{abstract}
-% Pedro added \noindent to abstract *********************
+% Pedro added \noindent to abstract ********************
 \noindent $abstract$
 \end{abstract}
 $endif$

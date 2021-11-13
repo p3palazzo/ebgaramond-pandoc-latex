@@ -1,21 +1,19 @@
 from            : markdown+raw_tex
 to              : latex
 standalone      : true
-data-dir        : "_lib"
+template        : "_lib/default.latex"
 file-scope      : true
-number-sections : true
 pdf-engine      : xelatex
-fail-if-warnings: true
+fail-if-warnings: false
 cite-method     : citeproc
 filters:
   - pandoc-crossref
   - citeproc
 variables:
-  documentclass: article
   fontsize: 11pt
+  geometry:
+    - top=3.5cm
   header-includes:
-    - \renewcommand{\headrulewidth}{0.5pt}
-    - \renewcommand{\footrulewidth}{0.5pt}
     - \usepackage[p,osf]{ebgaramond}
     - \usepackage{academicons}
     - \usepackage{multicol}
@@ -24,14 +22,16 @@ variables:
     - \usepackage[overload]{textcase}
     - \usepackage{titlesec}
     - \usepackage{titling}
-    - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
+    - \usepackage{enumitem}
     - \renewcommand{\maketitlehooka}{\scshape}
+    - \renewcommand{\maketitlehookb}{\normalshape}
+    - \titleformat*{\section}{\normalfont\MakeUppercase}
+    - \titleformat*{\subsection}{\normalfont\itshape}
+    - \titleformat*{\paragraph}{\normalfont\large\scshape\MakeLowercase}
   include-before:
     - \let\oldsc\textsc
     - \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
-    - \RedeclareSectionCommand[font={\ttfamily\normalfont\MakeUppercase}]{section}
-    - \RedeclareSectionCommand[font={\rmfamily\normalfont\itshape}]{subsection}
-    - \RedeclareSectionCommand[font={\rmfamily\normalfont\large\scshape\MakeLowercase}]{paragraph}
+    - \setlist{font=\normalfont}
   indent: true
   papersize: a4
   secnumdepth: 2
