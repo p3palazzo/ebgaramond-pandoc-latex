@@ -31,7 +31,7 @@ variables:
   include-before:
     - \let\oldsc\textsc
     - \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
-    - \setlist{font=\normalfont}
+    - \setlist{font=\normalfont\scshape}
   indent: true
   papersize: a4
   secnumdepth: 2
