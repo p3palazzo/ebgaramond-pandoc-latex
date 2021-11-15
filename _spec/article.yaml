@@ -10,6 +10,7 @@ filters:
   - pandoc-crossref
   - citeproc
 variables:
+  documentclass: article
   fontsize: 11pt
   geometry:
     - top=3.5cm
