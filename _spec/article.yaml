@@ -9,8 +9,10 @@ cite-method     : citeproc
 filters:
   - pandoc-crossref
   - citeproc
+metadata:
+  lang          : en-US
 variables:
-  documentclass: article
+  documentclass : article
   fontsize: 11pt
   geometry:
     - top=3.5cm
