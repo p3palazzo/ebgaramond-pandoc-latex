@@ -4,8 +4,8 @@ PANDOC/LATEX := docker run -u "`id -u`:`id -g`" \
 		-v "`pwd`:/data" -v "`pwd`/assets/fonts:/usr/share/fonts" \
 		pandoc/latex:2.16.1
 
-artigo.pdf : artigo.md pdf.yaml bibliografia.yaml
-	$(PANDOC/LATEX) -o $@ -d _spec/pdf.yaml $<
+article.pdf : article.md article.yaml bibliografia.yaml
+	$(PANDOC/LATEX) -o $@ -d _spec/article.yaml $<
 
 .PHONY : clean
 clean :
