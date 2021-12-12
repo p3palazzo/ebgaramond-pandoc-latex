@@ -11,30 +11,37 @@ filters:
   - citeproc
 metadata:
   lang          : en-US
+number-sections: false
 variables:
   documentclass : article
-  fontsize: 11pt
-  geometry:
-    - top=3.5cm
-  header-includes:
-    - \usepackage[p,osf]{ebgaramond}
-    - \usepackage{academicons}
-    - \usepackage{multicol}
-    - \setlength{\columnsep}{15pt}
-    - \usepackage{csquotes}
-    - \usepackage[overload]{textcase}
-    - \usepackage{titlesec}
-    - \usepackage{titling}
-    - \usepackage{enumitem}
-    - \renewcommand{\maketitlehooka}{\scshape}
-    - \renewcommand{\maketitlehookb}{\normalshape}
-    - \titleformat*{\section}{\normalfont\MakeUppercase}
-    - \titleformat*{\subsection}{\normalfont\itshape}
-    - \titleformat*{\paragraph}{\normalfont\large\scshape\MakeLowercase}
-  include-before:
-    - \let\oldsc\textsc
-    - \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
-    - \setlist{font=\normalfont\scshape}
+  fontsize: 12pt
+  header-includes: |
+    \usepackage[p,osf]{ebgaramond}
+    \usepackage{academicons}
+    \usepackage{multicol}
+    \setlength{\columnsep}{15pt}
+    \usepackage{csquotes}
+    \usepackage[overload]{textcase}
+    \let\oldsc\textsc
+    \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
+
+    \usepackage{titling}
+    \pretitle{\begin{flushleft}\Huge}
+    \posttitle{\end{flushleft}\vspace{2em}}
+    \preauthor{\begin{flushleft}\Large}
+    \postauthor{\par\end{flushleft}}
+    \predate{\begin{flushleft}\large}
+    \postdate{\end{flushleft} \vfill}
+
+    \usepackage{titlesec,titletoc}
+    \titleformat{\section}[hang]{\normalfont\Large\itshape}{}{}{}[]
+    \titleformat{\subsection}[hang]{\normalfont\large\itshape}{}{1em}{}[]
+    \titleformat{\paragraph}[runin]{\normalfont\scshape}{}{0pt}{}[]
+
+    \usepackage{enumitem}
+    \setlist{font=\normalfont\scshape}
+
+    \usepackage{fancyhdr}
   indent: true
   papersize: a4
   secnumdepth: 2

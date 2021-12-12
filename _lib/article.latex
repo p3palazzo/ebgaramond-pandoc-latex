@@ -417,7 +417,7 @@ $else$
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\vspace{1em} \par {\large #1 \par}}{}{}
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
 }
 \makeatother
 $endif$
@@ -437,9 +437,7 @@ $if(logo)$
 $endif$
 $endif$
 % Pedro removed the abstract title *********************
-$if(abstract)$
-\renewenvironment{abstract}{\quotation\noindent}
-$endif$
+\renewenvironment{abstract}{\quotation}
 
 \begin{document}
 $if(has-frontmatter)$
@@ -453,7 +451,8 @@ $else$
 $endif$
 $if(abstract)$
 \begin{abstract}
-$abstract$
+% Pedro added \noindent to abstract ********************
+\noindent $abstract$
 \end{abstract}
 $endif$
 $endif$
@@ -462,7 +461,6 @@ $for(include-before)$
 $include-before$
 
 $endfor$
-\setcounter{page}{2}
 $if(toc)$
 $if(toc-title)$
 \renewcommand*\contentsname{$toc-title$}
@@ -493,7 +491,6 @@ $endif$
 $if(linestretch)$
 \setstretch{$linestretch$}
 $endif$
-\titleformat{\chapter}[display]{}{}{0pt}{\huge\thechapter\quad}[\vspace{2em}]
 $if(has-frontmatter)$
 \mainmatter
 $endif$
