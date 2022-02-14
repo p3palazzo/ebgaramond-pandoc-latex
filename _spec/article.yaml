@@ -26,7 +26,9 @@ variables:
     \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
 
     \usepackage{titling}
-    \pretitle{\Huge\normalfont}
+    \pretitle{\begin{center}\Huge\normalfont}
+    \posttitle{\end{center}\vspace{2em}}
+
 
     \usepackage{titlesec,titletoc}
     \titleformat{\section}[hang]{\normalfont\Large\itshape}{\thesection}{1em}{}[]
