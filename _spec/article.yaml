@@ -1,23 +1,27 @@
-from            : markdown+raw_tex
-to              : latex
-standalone      : true
-template        : "_lib/default.latex"
-file-scope      : true
-pdf-engine      : xelatex
-fail-if-warnings: false
-cite-method     : citeproc
+from               : markdown+raw_tex
+to                 : latex
+standalone         : true
+template           : "_lib/article.latex"
+file-scope         : true
+pdf-engine         : xelatex
+fail-if-warnings   : false
+cite-method        : citeproc
 filters:
   - pandoc-crossref
   - citeproc
-metadata:
-  lang          : en-US
-number-sections: false
 variables:
-  documentclass : article
-  fontsize: 12pt
-  header-includes: |
-    \usepackage[p,osf]{ebgaramond}
+  documentclass    : article
+  fontfamily       : ebgaramond
+  fontfamilyoptions:
+    - oldstyle
+    - proportional
+  fontsize         : 12pt
+  indent           : true
+  papersize        : a4
+  secnumdepth      : 2
+  header-includes  : |
     \usepackage{academicons}
+
     \usepackage{multicol}
     \setlength{\columnsep}{15pt}
     \usepackage{csquotes}
@@ -26,9 +30,12 @@ variables:
     \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
 
     \usepackage{titling}
-    \pretitle{\begin{center}\Huge\normalfont}
+    \pretitle{\begin{center}\Huge\textsc}
     \posttitle{\end{center}\vspace{2em}}
-
+    \preauthor{\begin{center}}
+    \postauthor{\par\end{center}}
+    \predate{\begin{center}}
+    \postdate{\end{center}}
 
     \usepackage{titlesec,titletoc}
     \titleformat{\section}[hang]{\normalfont\Large\itshape}{\thesection}{1em}{}[]
@@ -37,10 +44,12 @@ variables:
     \titlespacing{\paragraph}{0pt}{1em}{0.5ex}
 
     \usepackage{enumitem}
-    \setlist{font=\normalfont\scshape}
+    \setlist{font=\normalfont\scshape\tabularnums}
     \setlist[itemize,1]{label=$›$}
 
     \usepackage{fancyhdr}
-  indent: true
-  papersize: a4
-  secnumdepth: 2
+  include-before: |
+    \pagestyle{fancy}
+    \fancyhf{}
+    \lhead{\itshape Pedro P. Palazzo}
+    \rhead{\thepage}
