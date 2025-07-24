@@ -1,6 +1,7 @@
 from            : markdown+raw_tex+escaped_line_breaks
 to              : latex
 standalone      : true
+template        : "_lib/default.latex"
 file-scope      : true
 pdf-engine      : xelatex
 fail-if-warnings: false
@@ -12,7 +13,7 @@ toc-depth       : 1
 metadata:
   lang          : pt-PT
   toc           : true
-  toc-title     : "Índice"
+  toc-title     : "Sumário"
 number-sections : true
 variables:
   documentclass : report
@@ -50,10 +51,10 @@ variables:
     \titlespacing{\paragraph}{0pt}{1em}{0.5ex}
     
     \usepackage{enumitem}
-    \setlist{font=\normalfont\scshape}
+    \setlist{font=\normalfont\scshape\tabularnums}
     \setlist[itemize,1]{label=$›$}
 
     \usepackage{fancyhdr}
   indent: true
   papersize: a4
-  secnumdepth: 2
+  secnumdepth: 1
