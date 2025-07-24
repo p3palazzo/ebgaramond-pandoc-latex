@@ -8,27 +8,29 @@ cite-method     : citeproc
 filters:
   - pandoc-crossref
   - citeproc
-  - pandoc-include
+toc-depth       : 1
 metadata:
   lang          : pt-PT
   toc           : true
   toc-title     : "Índice"
-  toc-depth     : 1
 number-sections : true
-template        : _lib/default.latex
 variables:
   documentclass : report
-  fontsize: 12pt
+  classoption:
+    - oneside
+  fontsize      : 12pt
+  fontfamily    : ebgaramond
+  fontfamilyoptions:
+    - oldstyle
+    - proportional
+    - semibold
   header-includes: |
-    \usepackage[p,osf]{ebgaramond}
-
     \usepackage{multicol}
     \setlength{\columnsep}{15pt}
 
     \usepackage{csquotes}
     \usepackage[overload]{textcase}
-    \let\oldsc\textsc
-    \renewcommand{\textsc}[1]{\oldsc{\MakeLowercase{#1}}}
+    \newcommand\allsc[1]{\textsc{\MakeTextLowercase{#1}}}
 
     \usepackage{titling}
     \pretitle{\begin{flushleft}\Huge}
@@ -54,4 +56,4 @@ variables:
     \usepackage{fancyhdr}
   indent: true
   papersize: a4
-  secnumdepth: 1
+  secnumdepth: 2
