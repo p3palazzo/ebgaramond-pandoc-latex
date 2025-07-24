@@ -29,12 +29,12 @@ variables:
     \newcommand\allsc[1]{\textsc{\MakeTextLowercase{#1}}}
 
     \usepackage{titling}
-    \pretitle{\begin{flushleft}\Huge}
-    \posttitle{\end{flushleft}\vspace{2em}}
-    \preauthor{\begin{flushleft}\Large}
-    \postauthor{\par\end{flushleft}}
-    \predate{\begin{flushleft}\large}
-    \postdate{\end{flushleft}}
+    \pretitle{\begin{center}\Huge\textsc}
+    \posttitle{\end{center}\vspace{2em}}
+    \preauthor{\begin{center}}
+    \postauthor{\par\end{center}}
+    \predate{\begin{center}}
+    \postdate{\end{center}}
 
     \usepackage{titlesec,titletoc}
     \titleformat{\section}[hang]{\normalfont\Large\itshape}{\thesection}{1em}{}[]
